@@ -13,6 +13,6 @@ while True:
 
     print("Client request information\n", request_data)
 
-    connection.send(b'HTTP/1.1 200 ok\r\nserver:local\r\n\r\nhello world')
+    connection.send(b'HTTP/1.1 200 ok\r\nserver:local\r\ncontent-type:application/json\r\n\r\n{"text":"hello world"}')
 
     connection.close()
