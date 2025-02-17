@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 import uvicorn
 from app.user import user
 from app.job import job
@@ -8,6 +9,8 @@ from app.file import file
 from app.items import items
 
 app = FastAPI()
+
+app.mount('/statics', StaticFiles(directory='statics'))
 
 app.include_router(user, tags=['path parameters'])
 app.include_router(job, tags=['query parameters'])
